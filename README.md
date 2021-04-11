@@ -1,5 +1,7 @@
 # wii-menu
 
+The "Wii menu" and time switch in the tiny bottom spot
+
 ## Project setup
 ```
 npm install
