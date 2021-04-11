@@ -29,19 +29,15 @@ textarea,
   outline: none;
 }
 :root {
-  --primary: #aa0028;
-  --primary-light: #c01739;
-  --primary-dark: #fd003b80;
-  --primary-hover: #f0496a;
-  --primary-focus: #da3959;
-  --background-color: #111111;
-  --background-color-light: #2b2b2b;
-  --font-color: #eeeeee;
+  --wii-background: #d0d2d9;
+  --wii-blue: #3cb9e6;
+  --top-layout: #e6e6e6;
+  --font-light: #818181;
 }
 body {
   width: 100vw;
   height: 100vh;
-  background: #d0d2d9;
+  background: var(--wii-background);
   overflow: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: background 0.3s cubic-bezier(0.23, 1, 0.32, 1);
