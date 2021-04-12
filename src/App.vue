@@ -34,6 +34,7 @@ textarea,
   --top-layout: #e4e4e4;
   --top-layout-gradient-light: #eeeeee;
   --top-layout-light: #f4f4f4;
+  --empty-channel: #cacaca;
   --font-light: #818181;
 }
 body {

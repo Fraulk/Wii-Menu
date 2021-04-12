@@ -4,7 +4,7 @@
       <div class="wiiButton leftSide">Wii</div>
     </div>
     <div class="btnContainer rightBtnContainer">
-      <div class="wiiButton rightSide"></div>
+      <div @click="$emit('press')" class="wiiButton rightSide"></div>
     </div>
   </div>
 </template>
