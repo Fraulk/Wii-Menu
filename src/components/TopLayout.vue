@@ -16,6 +16,10 @@
         } L ${width} ${height * 0.705521472392638} L ${width} 0 L 0 0');
         height: ${height * 0.8179959100204499}px;`"
       >
+        <div id="backgroundLines">
+          <div v-for="n in 100" :key="'line-' + n" class="backgroundLine"></div>
+        </div>
+        <Channels />
         <h1>Wii Menu</h1>
       </div>
     </div>
@@ -24,6 +28,8 @@
 </template>
 
 <script>
+import Channels from "./Channels";
+
 export default {
   data: function () {
     return {
@@ -44,6 +50,9 @@ export default {
   deactivated: function () {
     window.removeEventListener("resize", this.getSize);
   },
+  components: {
+    Channels,
+  },
 };
 </script>
 
@@ -59,7 +68,13 @@ export default {
   position: absolute;
   width: 100vw;
   height: 50rem;
-  background-color: var(--top-layout);
+  background: var(--top-layout);
+  background: linear-gradient(
+    90deg,
+    var(--top-layout) 0%,
+    var(--top-layout-gradient-light) 50%,
+    var(--top-layout) 100%
+  );
   clip-path: path(
     "M 0 690 L 280 690 C 480 690 480 800 720 800 L 1200 800 C 1440 800 1440 690 1640 690 L 1920 690 L 1920 0 L 0 0"
   );
@@ -86,5 +101,11 @@ export default {
   right: 0;
   color: var(--font-light);
   font-size: 4rem;
+}
+.backgroundLine {
+  width: 100%;
+  height: 3px;
+  margin-bottom: 9px;
+  background-color: var(--top-layout-light);
 }
 </style>

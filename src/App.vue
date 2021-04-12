@@ -31,7 +31,9 @@ textarea,
 :root {
   --wii-background: #d0d2d9;
   --wii-blue: #3cb9e6;
-  --top-layout: #e6e6e6;
+  --top-layout: #e4e4e4;
+  --top-layout-gradient-light: #eeeeee;
+  --top-layout-light: #f4f4f4;
   --font-light: #818181;
 }
 body {
