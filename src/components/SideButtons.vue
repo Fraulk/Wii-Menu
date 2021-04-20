@@ -1,10 +1,10 @@
 <template>
   <div class="sideBtns">
     <div class="btnContainer leftBtnContainer">
-      <div class="wiiButton leftSide">Wii</div>
+      <div class="wiiSideButton leftSide">Wii</div>
     </div>
     <div class="btnContainer rightBtnContainer">
-      <div @click="$emit('press')" class="wiiButton rightSide"></div>
+      <div @click="$emit('press')" class="wiiSideButton rightSide"></div>
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@
   border-radius: 150px 0 0 150px;
   border-right-width: 0;
 }
-.wiiButton {
+.wiiSideButton {
   width: 180px;
   height: 180px;
   display: flex;
@@ -50,8 +50,8 @@
   color: var(--font-light);
   font-size: 2rem;
 }
-/* .wiiButton.leftSide {
+/* .wiiSideButton.leftSide {
 }
-.wiiButton.rightSide {
+.wiiSideButton.rightSide {
 } */
 </style>

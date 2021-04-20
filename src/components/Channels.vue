@@ -21,7 +21,22 @@
           width * 0.00627352572145
         } ${height * 0.0152027}');`"
       >
-        <div v-if="i == 1 && n == 1" class="channelJim"></div>
+        <div
+          @click.self="
+            currentChannel = 'c' + i + '_' + n;
+            showChannel(true);
+          "
+          v-if="i == 1 && n == 1"
+          class="channelJim"
+          ref="chnnl"
+        >
+          <div v-if="channels.c1_1 == true">
+            <div class="channelBottomBar">
+              <WiiButton @click="showChannel(false)">Wii Menu</WiiButton>
+              <WiiButton>Start</WiiButton>
+            </div>
+          </div>
+        </div>
         <div v-else>
           <div class="channelLines">
             <div
@@ -38,11 +53,19 @@
 </template>
 
 <script>
+import { zoom } from "../helpers/zoom.js"; //https://github.com/hakimel/zoom.js
+import WiiButton from "./WiiButton";
+
 export default {
   data: function () {
     return {
       width: 1594,
       height: 592,
+      channels: {
+        c1_1: false,
+        c1_2: false,
+      },
+      currentChannel: "",
     };
   },
   methods: {
@@ -52,13 +75,38 @@ export default {
         this.height = this.$refs.channels.offsetHeight;
       }, 10);
     },
+    showChannel(channel) {
+      if (channel) {
+        this.channels[this.currentChannel] = true;
+        this.$emit("channelSelected", true);
+        this.zoomIn();
+      } else if (!channel) {
+        console.log("got in the false");
+        this.channels[this.currentChannel] = false;
+        this.$emit("channelSelected", false);
+        this.zoomOut();
+      }
+    },
+    zoomIn: function () {
+      return zoom.to({
+        element: this.$refs.chnnl,
+        pan: false,
+      });
+    },
+    zoomOut: function () {
+      return zoom.out();
+    },
   },
   mounted: function () {
     this.getSize();
     window.addEventListener("resize", this.getSize);
+    this.root = document.documentElement;
   },
   deactivated: function () {
     window.removeEventListener("resize", this.getSize);
+  },
+  components: {
+    WiiButton,
   },
 };
 </script>
@@ -124,11 +172,35 @@ export default {
   height: 100%;
   background: url("~@/assets/jim.jpg") center / cover no-repeat;
   cursor: pointer;
+  position: relative;
+}
+.channelBottomBar {
+  position: absolute;
+  bottom: 0;
+  height: 30%;
+  background-color: var(--top-layout);
+  left: 0;
+  right: 0;
+  border-top: 1px solid #000000e7;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: auto;
+  animation: bottomBar 1s forwards;
 }
 
 @keyframes linesGoesUppp {
   100% {
     transform: translateY(-12px);
+  }
+}
+
+@keyframes bottomBar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

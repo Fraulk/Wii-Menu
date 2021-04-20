@@ -1,6 +1,8 @@
 # wii-menu
 
-The "Wii menu" and time switch in the tiny bottom spot
+The "Wii menu" and time switch in the tiny bottom spot  
+title when hovering a button
+game disc animation
 
 ## Project setup
 ```
