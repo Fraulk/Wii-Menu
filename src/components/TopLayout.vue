@@ -1,6 +1,6 @@
 <template>
   <div id="TopLayout" ref="tl">
-    <div class="topWrapper">
+    <div :class="['topWrapper', { filterNone: chanSelectedDelayed }]">
       <div
         class="topLayout"
         :style="`clip-path: path('M 0 ${height * 0.705521472392638} L ${
@@ -39,6 +39,7 @@ export default {
       width: 1920,
       height: 1080,
       chanSelected: false,
+      chanSelectedDelayed: false,
     };
   },
   methods: {
@@ -48,7 +49,14 @@ export default {
     },
     channelSelected(e) {
       this.chanSelected = e;
-      console.log(e);
+      // because of a weird bug, filter breaks ui when resolution is higher,
+      // just change chanSelectedDelayed to chanSelected in the class at line 3 to reproduce
+      if (e) this.chanSelectedDelayed = e;
+      else {
+        setTimeout(() => {
+          this.chanSelectedDelayed = e;
+        }, 670);
+      }
     },
   },
   mounted: function () {
@@ -71,6 +79,9 @@ export default {
 .topWrapper {
   filter: drop-shadow(0px 5px 0px var(--wii-blue))
     drop-shadow(0px 10px 20px #00000030);
+}
+.filterNone {
+  filter: none;
 }
 .topLayout {
   position: absolute;

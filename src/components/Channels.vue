@@ -81,7 +81,6 @@ export default {
         this.$emit("channelSelected", true);
         this.zoomIn();
       } else if (!channel) {
-        console.log("got in the false");
         this.channels[this.currentChannel] = false;
         this.$emit("channelSelected", false);
         this.zoomOut();
