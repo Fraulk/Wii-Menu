@@ -20,7 +20,6 @@
   background-color: var(--top-layout);
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   box-shadow: inset -5px -10px 3px -7px #9b9b9bd8, inset 3px 7px 1px 0px #fafafa;
 }
 </style>

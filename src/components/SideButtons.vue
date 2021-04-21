@@ -1,13 +1,25 @@
 <template>
   <div class="sideBtns">
     <div class="btnContainer leftBtnContainer">
-      <div class="wiiSideButton leftSide">Wii</div>
+      <div class="wiiSideButton leftSide">
+        <wiiLogo />
+      </div>
     </div>
     <div class="btnContainer rightBtnContainer">
       <div @click="$emit('press')" class="wiiSideButton rightSide"></div>
     </div>
   </div>
 </template>
+
+<script>
+import wiiLogo from "../assets/wii-logo";
+
+export default {
+  components: {
+    wiiLogo,
+  },
+};
+</script>
 
 <style>
 .sideBtns {
@@ -19,8 +31,8 @@
   right: 0;
 }
 .btnContainer {
-  width: 280px;
-  height: 210px;
+  width: 280px; /* 280px || 14.6vw */
+  height: 210px; /* 210px || 21.5vh */
   border: inset 10px #75757520;
   border-style: ridge;
   display: flex;
@@ -36,8 +48,8 @@
   border-right-width: 0;
 }
 .wiiSideButton {
-  width: 180px;
-  height: 180px;
+  width: 180px; /* 180px || 9.3vw */
+  height: 180px; /* 180px || 18.4vh */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,9 +61,11 @@
   box-shadow: 8px 8px 0px #00000030;
   color: var(--font-light);
   font-size: 2rem;
+  font-family: Continuum;
 }
-/* .wiiSideButton.leftSide {
+.wiiSideButton.leftSide {
+  font-size: 4rem;
 }
-.wiiSideButton.rightSide {
+/* .wiiSideButton.rightSide {
 } */
 </style>

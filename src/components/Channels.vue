@@ -170,7 +170,6 @@ export default {
 .channelJim {
   height: 100%;
   background: url("~@/assets/jim.jpg") center / cover no-repeat;
-  cursor: pointer;
   position: relative;
 }
 .channelBottomBar {
@@ -184,7 +183,6 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  cursor: auto;
   animation: bottomBar 1s forwards;
 }
 

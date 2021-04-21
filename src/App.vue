@@ -45,6 +45,9 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: background 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
+html {
+  cursor: url("./assets/cursor.png") 15 0, auto;
+}
 /* Scrollbar */
 *::-webkit-scrollbar {
   width: 10px;
@@ -60,6 +63,13 @@ body {
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: var(--primary-hover);
+}
+
+@font-face {
+  font-family: "Continuum";
+  src: url("./assets/contm.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
